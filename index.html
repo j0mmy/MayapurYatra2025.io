@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayapur Yatra - A Sacred Journey to the Spiritual Capital</title>
+    <style>
+        :root {
+            --primary-color: #FFA500;
+            --secondary-color: #800080;
+            --background-color: #FFF8F0;
+            --text-color: #333333;
+            --accent-color: #F9D5A7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Section */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/600?text=Mayapur+Temple+of+Vedic+Planetarium') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 180px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 165, 0, 0.2), transparent 70%);
+            z-index: 0;
+        }
+        
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+            font-weight: 800;
+            background: linear-gradient(120deg, #FFA500, #800080);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-button:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            z-index: -1;
+            transition: opacity 0.3s;
+            opacity: 0;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button:hover:before {
+            opacity: 1;
+        }
+        
+        /* About Section */
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .about-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 20%;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-top: 50px;
+            text-align: left;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+        }
+        
+        /* Highlights Section */
+        .highlights-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .highlight-card {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            background-color: white;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .highlight-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .highlight-card h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        /* Itinerary Section */
+        .itinerary-section {
+            padding: 80px 0;
+            background: url('/api/placeholder/1200/300?text=Mayapur+Skyline') center bottom/contain no-repeat;
+            padding-bottom: 250px;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: var(--primary-color);
+            border: 4px solid var(--accent-color);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -13px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 0;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            color: var(--accent-color);
+            opacity: 0.5;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Registration Section */
+        .registration-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/600?text=Ganges+River+Aarti') center/cover no-repeat;
+            color: white;
+            text-align: center;
+        }
+        
+        .registration-section .section-title {
+            color: white;
+        }
+        
+        .registration-form {
+            max-width: 600px;
+            margin: 50px auto 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            color: var(--text-color);
+            text-align: left;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .submit-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .submit-button:hover {
+            background-color: #E56600;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+        }
+        
+        .accordion {
+            max-width: 800px;
+            margin: 50px auto 0;
+        }
+        
+        .accordion-item {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .accordion-header {
+            background-color: white;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .accordion-header:hover {
+            background-color: var(--accent-color);
+        }
+        
+        .accordion-content {
+            padding: 20px;
+            background-color: white;
+            display: none;
+        }
+        
+        .active .accordion-content {
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column p, .footer-column address {
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0%;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .nav-bar {
+                padding: 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="nav-bar">
+                <div class="logo">
+                    <img src="/api/placeholder/50/50?text=Om" alt="Mayapur Yatra Logo" style="height: 40px; margin-right: 10px; vertical-align: middle;">
+                    Mayapur Yatra
+                </div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#highlights">Highlights</a>
+                    <a href="#itinerary">Itinerary</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#registration">Register</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+            </div>
+            <div class="hero-content">
+                <h1>Discover the Divine Essence of Mayapur</h1>
+                <p>Walk in the footsteps of Lord Chaitanya, experience transcendental kirtans, and transform your spiritual journey in the holiest place on earth.</p>
+                <a href="#registration" class="cta-button">Begin Your Spiritual Journey</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Mayapur</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400?text=Temple+of+the+Vedic+Planetarium" alt="Temple of the Vedic Planetarium">
+                </div>
+                <div class="about-text">
+                    <h3>The Spiritual Heart of Bengal</h3>
+                    <p>Mayapur, located at the confluence of the sacred Ganges and Jalangi rivers, is the birthplace of Sri Chaitanya Mahaprabhu and the worldwide headquarters of ISKCON (International Society for Krishna Consciousness).</p>
+                    <p>Our carefully curated yatra offers a deep spiritual experience, allowing you to connect with the divine energy of this sacred land while learning about the rich Vaishnava traditions under the guidance of experienced devotees.</p>
+                    <p>Home to the magnificent Temple of the Vedic Planetarium and numerous historical sites, Mayapur offers visitors a unique blend of spiritual enlightenment, cultural immersion, and peaceful reflection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Image Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Glimpses of Mayapur</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300?text=Kirtan+at+TOVP" alt="Kirtan at TOVP">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300?text=Ganges+River+View" alt="Ganges River View">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300?text=Lord+Chaitanya+Birthplace" alt="Lord Chaitanya Birthplace">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300?text=Devotees+Chanting" alt="Devotees Chanting">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Highlights Section -->
+    <section id="highlights" class="highlights-section">
+        <div class="container">
+            <h2 class="section-title">Yatra Highlights</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">🕉️</div>
+                    <h3>Sacred Darshans</h3>
+                    <p>Special access to deities and sacred sites with time for personal prayer and meditation in these powerful spiritual locations.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🎵</div>
+                    <h3>Kirtan & Bhajans</h3>
+                    <p>Participate in soul-stirring kirtans and bhajans, experiencing the bliss of congregational chanting in the birthplace of sankirtana.</p>
+                    <img src="/api/placeholder/300/180?text=Kirtan+Performance" alt="Kirtan Performance" style="width: 100%; border-radius: 8px; margin-top: 15px;">
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🏛️</div>
+                    <h3>Temple of Vedic Planetarium</h3>
+                    <p>Exclusive guided tour of the magnificent TOVP, learning about Vedic cosmology and the spiritual significance of this architectural marvel.</p>
+                    <img src="/api/placeholder/300/180?text=TOVP+Interior" alt="TOVP Interior" style="width: 100%; border-radius: 8px; margin-top: 15px;">
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🍲</div>
+                    <h3>Prasadam Experience</h3>
+                    <p>Enjoy sanctified vegetarian meals prepared with devotion according to ancient Vedic culinary traditions.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🌸</div>
+                    <h3>Spiritual Discourses</h3>
+                    <p>Daily classes and discussions with senior devotees and scholars on various aspects of Vaishnava philosophy and practice.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🌅</div>
+                    <h3>Ganga Aarti</h3>
+                    <p>Witness and participate in the mesmerizing Ganga Aarti ceremony on the banks of the sacred Ganges River.</p>
+                    <img src="/api/placeholder/300/180?text=Ganga+Aarti+Ceremony" alt="Ganga Aarti Ceremony" style="width: 100%; border-radius: 8px; margin-top: 15px;">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Itinerary Section -->
+    <section id="itinerary" class="itinerary-section">
+        <div class="container">
+            <h2 class="section-title">Yatra Itinerary</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Day 1: Arrival & Welcome</h3>
+                        <p>Arrival in Kolkata and transfer to Mayapur. Welcome ceremony at the ISKCON campus followed by evening aarti and introductory discourse.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Day 2: Temple of Vedic Planetarium</h3>
+                        <p>Morning program with mangala aarti, japa meditation, and breakfast prasadam. Full guided tour of the TOVP, followed by spiritual discourses and evening kirtan.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Day 3: Nabadwip Parikrama</h3>
+                        <p>Full-day parikrama (pilgrimage walk) to significant sites in Nabadwip associated with Lord Chaitanya's pastimes, with storytelling at each location.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Day 4: Yoga & Knowledge</h3>
+                        <p>Morning yoga session, followed by workshops on Bhagavad Gita and Vedic living. Afternoon visit to Srila Prabhupada's Samadhi and bhajan kutir.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Day 5: Ganga Experience</h3>
+                        <p>Morning boat ride on the sacred Ganges, visit to Yogapith (birthplace of Lord Chaitanya), and evening Ganga aarti ceremony.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Day 6: Cultural Immersion</h3>
+                        <p>Traditional Bengali cultural program, cooking class on preparing prasadam, and special darshan of Sri Sri Radha Madhava.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Day 7: Departure</h3>
+                        <p>Final morning program, closing ceremony with blessings, and departure to Kolkata with packed prasadam.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Devotee Experiences</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The Mayapur yatra transformed my spiritual practice completely. The energy of this sacred place is unlike anywhere else I've visited. The guides were knowledgeable and the entire experience was well-organized.</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/100/100?text=RS" alt="Radha Sharma">
+                        </div>
+                        <div>
+                            <h4>Radha Sharma</h4>
+                            <p>Delhi, India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">As someone new to Vaishnava traditions, I was worried I might feel out of place, but everyone was incredibly welcoming. The discourses were enlightening and accessible, and I left with a heart full of devotion.</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/100/100?text=MJ" alt="Michael Jensen">
+                        </div>
+                        <div>
+                            <h4>Michael Jensen</h4>
+                            <p>California, USA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The accommodations were comfortable, the prasadam was delicious, and the itinerary offered a perfect balance of structured activities and personal time for reflection. I'm already planning my next visit!</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/100/100?text=AP" alt="Ananya Patel">
+                        </div>
+                        <div>
+                            <h4>Ananya Patel</h4>
+                            <p>London, UK</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Registration Section -->
+    <section id="registration" class="registration-section">
+        <div class="container">
+            <h2 class="section-title">Reserve Your Spot</h2>
+            <div class="registration-form">
+                <form>
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" id="country" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="yatra-date">Preferred Yatra Date</label>
+                        <select id="yatra-date" required>
+                            <option value="">Select a date</option>
+                            <option value="april">April 10-16, 2025</option>
+                            <option value="june">June 15-21, 2025</option>
+                            <option value="october">October 5-11, 2025</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="accommodation">Accommodation Preference</label>
+                        <select id="accommodation" required>
+                            <option value="">Select an option</option>
+                            <option value="standard">Standard (Shared Room)</option>
+                            <option value="deluxe">Deluxe (Private Room)</option>
+                            <option value="premium">Premium (Suite)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="special-requests">Special Requests or Questions</label>
+                        <textarea id="special-requests"></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Secure Your Reservation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>What is included in the yatra package?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Our comprehensive package includes airport transfers from Kolkata, accommodation in Mayapur, all meals (prasadam), guided tours of all sites, spiritual programs, workshops, special darshans, and a devotional gift pack. International airfare to Kolkata is not included.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Do I need to have prior knowledge of Krishna consciousness?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>No prior knowledge is required. Our yatra is designed to be accessible and meaningful for everyone from beginners to advanced practitioners. Our experienced guides will provide context and explanations throughout the journey.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>What should I pack for the yatra?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We recommend bringing modest clothing that covers shoulders and knees, comfortable walking shoes, personal toiletries, any required medications, a water bottle, notebook and pen, and optional items like a prayer shawl, japa mala beads, and a camera. A detailed packing list will be provided upon registration.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Is there a dress code for temple visits?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, for temple visits, men should wear dhoti or pants (no shorts), and women should wear sarees, long skirts, or salwar kameez. We encourage traditional Vaishnava dress but it's not mandatory. Western clothing is acceptable as long as it's modest and respectful.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Will there be internet connectivity?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, there is Wi-Fi available in the accommodation areas, though we encourage participants to minimize digital distractions to fully immerse in the spiritual experience. Mobile network coverage is also available throughout Mayapur.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Can you accommodate special dietary requirements?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>All meals served are vegetarian prasadam. We can accommodate vegan, gluten-free, and most allergy-related dietary requirements with advance notice. Please mention your specific needs in your registration form.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Mayapur Yatra</h3>
+                    <p>A transformative spiritual journey to the divine birthplace of Lord Chaitanya and the heart of the ISKCON movement.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">i</a>
+                        <a href="#" class="social-icon">y</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@mayapuryatra.com</p>
+                    <p>Phone:
